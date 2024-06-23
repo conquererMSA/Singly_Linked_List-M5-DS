@@ -1,1 +1,5 @@
-// nexssery of linled list
+// problem of using Array
+
+
+// Why Linked List and benefit of using of Linked List
+
