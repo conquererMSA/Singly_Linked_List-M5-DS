@@ -44,6 +44,18 @@ void insertAtPosition(Node *&head, int pos, int val){
     cout<<"inserted at "<<pos<<endl;
     return;
 }
+
+void insertAtHead(Node *&head, int val){
+    Node* newNode=new Node(val);
+    if(head==NULL){
+        head=newNode;
+        cout<<endl<<"head is null. inserted at head"<<endl;
+        return;
+    }
+    newNode->next=head;
+    head=newNode;
+    cout<<endl<<"inserted at head"<<endl;
+}
 void print_linked_list(Node *head)
 {
    Node* temp=head;
@@ -62,6 +74,7 @@ int main()
         cout << "Option 1: Insert at Tail" << endl;
         cout << "Option 2: Print Linked List" << endl;
         cout<<"Option 3: Insert at pos"<<endl;
+        cout<<"Option 4: Insert at head"<<endl;
         cout << "Option 7: Terminate" << endl;
         int op;
         cin >> op;
@@ -81,6 +94,12 @@ int main()
             int v,pos;
             cin >>v>>pos;
             insertAtPosition(head, pos, v);
+        }
+        else if(op==4){
+            cout << "Please enter value: ";
+            int v;
+            cin >>v;
+            insertAtHead(head,v);
         }
         else if (op == 7)
         {
