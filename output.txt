@@ -1,7 +1,2 @@
-value of Head: 5
-memory address of d: 0xfa9b50
-value of b: 1
-5
-7
-1
-sum until d: 13
+0x61ff0c
+xx: 0
