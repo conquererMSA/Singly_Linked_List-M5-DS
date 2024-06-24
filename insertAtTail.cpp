@@ -13,15 +13,28 @@ public:
 };
 void insert_at_tail(Node *&head, int v)
 {
-   Node * newNode=new Node(v);
+   Node* newNode=new Node(v);
    if(head==NULL){
     //zodi kuno node exist na kore. tahole head e newNode assign korte hobe
      head=newNode;
+     return;
    }
+   Node* temp=head;
+   while(temp->next!=NULL){
+     temp=temp->next;
+   }
+   //temp ekhon null e ache
+   temp->next=newNode;
 }
 void print_linked_list(Node *head)
 {
-   
+   Node* temp=head;
+   cout<<endl<<endl<<"Your List: ";
+   while(temp!=NULL){
+     cout<<temp->val<<" ";
+     temp=temp->next;
+   }
+   cout<<endl<<endl;
 }
 int main()
 {
