@@ -34,9 +34,14 @@ void sortLinkedList(Node*&head){
     Node* temp=head;
     for(Node* i=temp; i->next!=NULL;i=i->next){
         for(Node* j=i->next; j!=NULL; j=j->next){
+            //ascending sort
             if(i->value>j->value){
                 swap(j->value, i->value);
             }
+            //descending sort
+            // if(i->value<j->value){
+            //     swap(j->value, i->value);
+            // }
         }
     }
 }
