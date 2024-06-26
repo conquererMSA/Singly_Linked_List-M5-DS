@@ -38,6 +38,23 @@ void insertAtPosition(Node *&head,int pos, int val){
    }
     
 };
+void insertAtTailO1Comp(Node*&head, Node*&tail, int pos, int val){
+    Node* newNode=new Node(val);
+    if(head==NULL){
+        //zodi linkedList ekebare khali thake tahole head and tail NULL ke point kore. er pore zokhon insert howyar jonno first node ase taholeo head and tail hoy newNode.
+       head=newNode;
+       tail=newNode;
+       return;
+    }
+    //kintu zokhon linkedList e dui ba totudik node exist kore sekkhetre tail hoy last node and head hoy first node.
+    if(pos>=countSize(head)){
+        //linkedList er size theke zodi pos beshi hoy tahole tail e insert korbe.
+        tail->next=newNode;
+        tail=newNode;
+        return;
+    }
+
+}
 void printLinkedList(Node* head){
     Node* temp=head;
     while(temp!=NULL){
@@ -52,14 +69,20 @@ int main(){
     Node* b=new Node(3);
     Node* c=new Node(4);
     Node* d=new Node(5);
+    Node* tail=d;
+    cout<<"tail: "<<tail->val<<endl;
     head->next=a;
     a->next=b;
     b->next=c;
     c->next=d;
     int pos, val;
     cin>>pos>>val;
-    printLinkedList(head);
-    insertAtPosition(head,pos,val);
-    printLinkedList(head);
+    // cout<<tail->next; //0; zehetu NULL cpp te 0 hoy
+    // printLinkedList(head);
+    // insertAtPosition(head,pos,val);
+    // cout<<tail->val<<endl;
+    insertAtTailO1Comp(head,tail,pos,val);
+    cout<<"tail: "<<tail->val<<endl;
+    // printLinkedList(head);
     return 0;
 }
