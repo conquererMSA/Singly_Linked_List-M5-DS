@@ -47,10 +47,29 @@ void insertAtTail(Node*&head,Node*&tail, int v){
 }
 void checkIsAscendingSort(Node* head){
     //approach 1;
-    int llSize=countSize(head);
+    // int llSize=countSize(head);
+    // Node* temp=head;
+    // int isAscendingSort=1;
+    // for(int i=1; i<llSize; i++){
+    //     if(temp->val>temp->next->val){
+    //         isAscendingSort=0;
+    //         break;
+    //     }
+    //     temp=temp->next;
+    // }
+    // if(isAscendingSort){
+    //     cout<<"LL is ascending sorted\n";
+    // }else{
+    //     cout<<"LL is not ascending sorted\n";
+    // }
+
+    //aproach 2
     Node* temp=head;
     int isAscendingSort=1;
-    for(int i=1; i<llSize; i++){
+    while(1){
+        if(temp->next==NULL){
+            break;
+        }
         if(temp->val>temp->next->val){
             isAscendingSort=0;
             break;
@@ -58,9 +77,11 @@ void checkIsAscendingSort(Node* head){
         temp=temp->next;
     }
     if(isAscendingSort){
-        cout<<"LL is ascending sorted\n";
+        cout<<"LL is ascending sorted"<<endl;
+        return;
     }else{
-        cout<<"LL is not ascending sorted\n";
+        cout<<"LL is not ascending sorted"<<endl;
+        return;
     }
     return;
 }
