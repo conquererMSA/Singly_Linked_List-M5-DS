@@ -12,7 +12,7 @@ class Node{
 void printLinkedList(Node*&head){
     Node* temp=head;
     if(head==NULL){
-        cout<<"Empty!"<<endl;
+        cout<<"Linked List is empty!"<<endl;
         return;
     }
     while(temp!=NULL){
@@ -36,28 +36,31 @@ void insertAtTail(Node*&head,Node*&tail, int v){
     tail->next=newNode;
     tail=newNode;
 }
-void checkPalindrome(Node*head){
+void deleteSpecificNode(Node*&head){
+    cout<<"Insert the delete value: ";
+    int v;
+    cin>>v;
     Node*temp=head;
-    vector<int> v1;
-    while(temp!=NULL){
-        v1.push_back(temp->val);
-        temp=temp->next;
-    }
-    vector<int> v2;
-    v2=v1;
-    reverse(v2.begin(),v2.end());
-    cout<<"Palindrome answer: ";
-    if(v1==v2){
-      cout<<"Palindrome\n";
-      return;
-    }else{
-        cout<<"Not Palindrome\n";
+    if(temp->val==v){
+        Node* deleteNode=temp;
+        head=temp->next;
+        delete deleteNode;
         return;
+    }
+    while(temp->next!=NULL){
+        if(temp->next->val==v){
+        Node* deleteNode=temp->next;
+        temp->next=temp->next->next;
+        delete deleteNode;
+        return;
+       }
+       temp=temp->next;
     }
 }
 int main(){
     Node* head=NULL;
     Node* tail=NULL;
+    cout<<"Insert node val: ";
     while(true){
         int v;
         cin>>v;
@@ -67,6 +70,8 @@ int main(){
     cout<<endl;
     cout<<"Your List: ";
     printLinkedList(head);
-    checkPalindrome(head);
+    deleteSpecificNode(head);
+    cout<<"After delation: ";
+    printLinkedList(head);
     return 0;
 }
